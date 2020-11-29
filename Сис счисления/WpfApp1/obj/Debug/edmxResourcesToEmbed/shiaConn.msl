@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище anglebovModelContainer" CdmEntityContainer="shiaEntities">
+    <EntitySetMapping Name="Operation">
+      <EntityTypeMapping TypeName="anglebovModel.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Operation1" ColumnName="Operation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperOnChiss">
+      <EntityTypeMapping TypeName="anglebovModel.OperOnChiss">
+        <MappingFragment StoreEntitySet="OperOnChiss">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_num" ColumnName="id_num" />
+          <ScalarProperty Name="id_num2" ColumnName="id_num2" />
+          <ScalarProperty Name="Resulters" ColumnName="Resulters" />
+          <ScalarProperty Name="id_oper" ColumnName="id_oper" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SisSchis">
+      <EntityTypeMapping TypeName="anglebovModel.SisSchis">
+        <MappingFragment StoreEntitySet="SisSchis">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Binary" ColumnName="Binary" />
+          <ScalarProperty Name="Quaternary" ColumnName="Quaternary" />
+          <ScalarProperty Name="Hexadecimal" ColumnName="Hexadecimal" />
+          <ScalarProperty Name="Octal" ColumnName="Octal" />
+          <ScalarProperty Name="Decimal" ColumnName="Decimal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

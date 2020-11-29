@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="06df4a8647eb44f3b7f0532a90066d5e" Name="Diagram1">
+        <EntityTypeShape EntityType="anglebovModel.Operation" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="anglebovModel.OperOnChiss" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="anglebovModel.SisSchis" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="anglebovModel.FK__OperOnChi__id_op__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="anglebovModel.FK__OperOnChi__id_nu__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="anglebovModel.FK__OperOnChi__id_nu__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="anglebovModel.FK_OperOnChiss_SisSchis" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

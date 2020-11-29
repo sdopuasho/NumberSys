@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="shiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MathOper">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OperWith" Relationship="Self.FK_OperWith_MathOper" FromRole="MathOper" ToRole="OperWith" />
+  </EntityType>
+  <EntityType Name="OperWith">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNum1" Type="Int32" Nullable="false" />
+    <Property Name="idNum2" Type="Int32" Nullable="false" />
+    <Property Name="idResiltNum" Type="Int32" Nullable="false" />
+    <Property Name="math" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MathOper" Relationship="Self.FK_OperWith_MathOper" FromRole="OperWith" ToRole="MathOper" />
+    <NavigationProperty Name="SisIschis" Relationship="Self.FK_OperWith_SisIschis" FromRole="OperWith" ToRole="SisIschis" />
+    <NavigationProperty Name="SisIschis1" Relationship="Self.FK_OperWith_SisIschis1" FromRole="OperWith" ToRole="SisIschis" />
+    <NavigationProperty Name="SisIschis2" Relationship="Self.FK_OperWith_SisIschis2" FromRole="OperWith" ToRole="SisIschis" />
+  </EntityType>
+  <EntityType Name="SisIschis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Binary" Type="Int32" Nullable="false" />
+    <Property Name="Decimal" Type="Int32" Nullable="false" />
+    <Property Name="Hexadecimal" Type="Int32" Nullable="false" />
+    <Property Name="Quaternary" Type="Int32" Nullable="false" />
+    <Property Name="Octal" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OperWith" Relationship="Self.FK_OperWith_SisIschis" FromRole="SisIschis" ToRole="OperWith" />
+    <NavigationProperty Name="OperWith1" Relationship="Self.FK_OperWith_SisIschis1" FromRole="SisIschis" ToRole="OperWith" />
+    <NavigationProperty Name="OperWith2" Relationship="Self.FK_OperWith_SisIschis2" FromRole="SisIschis" ToRole="OperWith" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_OperWith_MathOper">
+    <End Role="MathOper" Type="Self.MathOper" Multiplicity="1" />
+    <End Role="OperWith" Type="Self.OperWith" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MathOper">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperWith">
+        <PropertyRef Name="math" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperWith_SisIschis">
+    <End Role="SisIschis" Type="Self.SisIschis" Multiplicity="1" />
+    <End Role="OperWith" Type="Self.OperWith" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SisIschis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperWith">
+        <PropertyRef Name="idNum1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperWith_SisIschis1">
+    <End Role="SisIschis" Type="Self.SisIschis" Multiplicity="1" />
+    <End Role="OperWith" Type="Self.OperWith" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SisIschis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperWith">
+        <PropertyRef Name="idNum2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperWith_SisIschis2">
+    <End Role="SisIschis" Type="Self.SisIschis" Multiplicity="1" />
+    <End Role="OperWith" Type="Self.OperWith" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SisIschis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperWith">
+        <PropertyRef Name="idResiltNum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="shiaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MathOper" EntityType="Self.MathOper" />
+    <EntitySet Name="OperWith" EntityType="Self.OperWith" />
+    <EntitySet Name="SisIschis" EntityType="Self.SisIschis" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_OperWith_MathOper" Association="Self.FK_OperWith_MathOper">
+      <End Role="MathOper" EntitySet="MathOper" />
+      <End Role="OperWith" EntitySet="OperWith" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperWith_SisIschis" Association="Self.FK_OperWith_SisIschis">
+      <End Role="SisIschis" EntitySet="SisIschis" />
+      <End Role="OperWith" EntitySet="OperWith" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperWith_SisIschis1" Association="Self.FK_OperWith_SisIschis1">
+      <End Role="SisIschis" EntitySet="SisIschis" />
+      <End Role="OperWith" EntitySet="OperWith" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperWith_SisIschis2" Association="Self.FK_OperWith_SisIschis2">
+      <End Role="SisIschis" EntitySet="SisIschis" />
+      <End Role="OperWith" EntitySet="OperWith" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

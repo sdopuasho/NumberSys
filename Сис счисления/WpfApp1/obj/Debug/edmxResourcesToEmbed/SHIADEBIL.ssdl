@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище anglebovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Operation" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OperOnChiss">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_num" Type="int" Nullable="false" />
+    <Property Name="id_num2" Type="int" Nullable="false" />
+    <Property Name="Resulters" Type="int" Nullable="false" />
+    <Property Name="id_oper" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SisSchis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Binary" Type="int" Nullable="false" />
+    <Property Name="Quaternary" Type="int" Nullable="false" />
+    <Property Name="Hexadecimal" Type="int" Nullable="false" />
+    <Property Name="Octal" Type="int" Nullable="false" />
+    <Property Name="Decimal" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__OperOnChi__id_nu__114A936A">
+    <End Role="SisSchis" Type="Self.SisSchis" Multiplicity="1" />
+    <End Role="OperOnChiss" Type="Self.OperOnChiss" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SisSchis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperOnChiss">
+        <PropertyRef Name="id_num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OperOnChi__id_nu__123EB7A3">
+    <End Role="SisSchis" Type="Self.SisSchis" Multiplicity="1" />
+    <End Role="OperOnChiss" Type="Self.OperOnChiss" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SisSchis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperOnChiss">
+        <PropertyRef Name="id_num2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OperOnChi__id_op__1332DBDC">
+    <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+    <End Role="OperOnChiss" Type="Self.OperOnChiss" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OperOnChiss">
+        <PropertyRef Name="id_oper" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище anglebovModelContainer">
+    <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OperOnChiss" EntityType="Self.OperOnChiss" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SisSchis" EntityType="Self.SisSchis" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__OperOnChi__id_nu__114A936A" Association="Self.FK__OperOnChi__id_nu__114A936A">
+      <End Role="SisSchis" EntitySet="SisSchis" />
+      <End Role="OperOnChiss" EntitySet="OperOnChiss" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OperOnChi__id_nu__123EB7A3" Association="Self.FK__OperOnChi__id_nu__123EB7A3">
+      <End Role="SisSchis" EntitySet="SisSchis" />
+      <End Role="OperOnChiss" EntitySet="OperOnChiss" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OperOnChi__id_op__1332DBDC" Association="Self.FK__OperOnChi__id_op__1332DBDC">
+      <End Role="Operation" EntitySet="Operation" />
+      <End Role="OperOnChiss" EntitySet="OperOnChiss" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
